@@ -89,7 +89,7 @@ npm i --save @fortawesome/fontawesome-free
 
 echo '@import "tailwindcss";' > ./src/index.css
 
-echo 'import { defineConfig } from 'vite'
+echo "import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
@@ -99,4 +99,4 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-})' > ./vite.config.js
+})" > ./vite.config.js
