@@ -100,6 +100,3 @@ export default defineConfig({
     tailwindcss(),
   ],
 })' > ./vite.config.js
-
-
-echo '@import "tailwindcss";' > ./src/index.css
