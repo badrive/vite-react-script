@@ -17,21 +17,7 @@ Folder name :"
 read folder
 npm create vite@latest $folder -- --template react
 cd $folder
-
-# remove files
-
-rm -rf .git public/* src/assets/* src/App.css
-
-
-# create files and directories
-
-mkdir -p ./src/assets/{img,videos}
-mkdir -p ./src/{layouts,utils,pages/Home/components}
-touch ./src/layouts/{header.jsx,footer.jsx}
-touch ./src/pages/Home/home.jsx
-touch ./src/pages/Home/components/{firstSection.jsx,firstSection.scss}
-
-# # #
+rm -rf .git public/* src/*
 
 echo "<!DOCTYPE html>
 <html lang='en'>
@@ -50,6 +36,13 @@ echo "<!DOCTYPE html>
     <script type="module" src="/src/index.jsx"></script>
     </body>
 </html>" > ./index.html
+
+touch ./src/index.jsx
+mkdir -p ./src/assets/{img,videos}
+mkdir -p ./src/{layouts,utils,pages/Home/components}
+touch ./src/layouts/{header.jsx,footer.jsx}
+touch ./src/pages/Home/home.jsx
+touch ./src/pages/Home/components/{firstSection.jsx,firstSection.scss}
 
 echo "import './firstSection.scss'
 export const FirstSection = () => {
@@ -77,17 +70,22 @@ function App() {
 }
 export default App;" > ./src/App.jsx
 
-# libraries
+echo "import React from 'react';
+import './index.css'
+import ReactDOM from 'react-dom/client';
+import App from './App';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);" > ./src/index.jsx
 
 npm install sass
 npm install react-icons --save
+npm install tailwindcss @tailwindcss/vite
 npm i react-router-dom
 npm i --save @fortawesome/fontawesome-free
-
-
-# tailwind 
-
-npm install tailwindcss @tailwindcss/vite
 
 echo '@import "tailwindcss";' > ./src/index.css
 
